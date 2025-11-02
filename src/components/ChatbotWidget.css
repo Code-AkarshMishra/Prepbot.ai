@@ -1,0 +1,57 @@
+/* src/components/ChatbotWidget.css */
+
+/* Yeh poore widget ko corner mein fix karega */
+.chat-icon-button,
+.chatbot-widget-open {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 1000;
+}
+
+/* Icon button ka style */
+.chat-icon-button {
+  background: linear-gradient(135deg, #00ffff, #0066ff);
+  color: white;
+  border: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 255, 209, 0.4);
+  transition: all 0.3s ease;
+}
+
+.chat-icon-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 255, 209, 0.6);
+}
+
+/* Close button ka style (jo Chatbot ke upar dikhega) */
+.chat-close-button {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1001; /* Chatbot se upar */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+/* Yeh container hai jo khulne par Chatbot ko hold karega */
+.chatbot-widget-open {
+  /* `Chatbot.jsx` ki width/height iske andar fit hogi */
+  width: 320px;
+  height: 420px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  overflow: hidden; /* Yeh zaroori hai taaki Chatbot rounded corners mein rahe */
+}

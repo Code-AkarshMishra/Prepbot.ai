@@ -1,0 +1,118 @@
+.academic-level-container {
+  min-height: calc(100vh - 65px); /* Full height minus navbar */
+  padding: 40px 20px;
+  background-color: #0b0c10; /* Dark background */
+  color: #fff;
+}
+
+.academic-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.academic-title {
+  font-size: 2.8em;
+  font-weight: 700;
+  color: #00ffd1; /* Theme color */
+  margin-bottom: 10px;
+}
+
+.academic-subtitle {
+  font-size: 1.2em;
+  color: #ccc;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.level-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.level-card {
+  background: linear-gradient(145deg, #1e1e1e, #2a2a2a);
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+  border: 1px solid #333;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.level-card:hover {
+  transform: translateY(-10px);
+  border-color: #00ffd1;
+  box-shadow: 0 10px 30px rgba(0, 255, 209, 0.2);
+}
+
+.level-card-icon {
+  font-size: 3.5em;
+  margin-bottom: 20px;
+}
+
+.level-card-title {
+  font-size: 1.8em;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.level-card-description {
+  font-size: 1em;
+  color: #aaa;
+  line-height: 1.5;
+  min-height: 65px;
+}
+
+.level-card-button {
+  background: #00ffd1;
+  color: #111;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+  font-size: 1em;
+}
+
+.level-card:hover .level-card-button {
+  background: #fff;
+  color: #000;
+}
+
+/* Styles for "Coming Soon" cards */
+.level-card.coming-soon {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.level-card.coming-soon:hover {
+  transform: translateY(0);
+  border-color: #333;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.level-card.coming-soon .level-card-button {
+  display: none; /* Hide button if coming soon */
+}
+
+.coming-soon-badge {
+  position: absolute;
+  top: 15px;
+  right: -40px;
+  background: #ffc107;
+  color: #333;
+  padding: 5px 10px;
+  font-size: 0.8em;
+  font-weight: 700;
+  transform: rotate(45deg);
+  width: 150px;
+  text-align: center;
+}

@@ -1,0 +1,668 @@
+/* --- Global Styles --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #0b0c10;
+  color: #fff;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* --- Navbar --- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background: #111;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.navbar:hover {
+  background: #1a1a1a;
+  box-shadow: 0 4px 12px rgba(0, 255, 209, 0.1);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: 40px;
+}
+
+.logo span {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #00ffd1;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #00ffd1;
+}
+
+/* --- Base Button Style --- */
+.cta-btn {
+  background: #00ffd1;
+  color: #111;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px; /* Cylindrical shape */
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 255, 209, 0.2);
+}
+
+.cta-btn:hover {
+  background: #fff;
+  color: #111;
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* --- NEW: Login Button (to match hero-cta) --- */
+.login-btn {
+  padding: 10px 25px; /* Size rakha navbar ke liye */
+  font-size: 1em; /* Size rakha navbar ke liye */
+  border-radius: 30px; /* Shape hero button jaisa */
+  background: linear-gradient(135deg, #00ffff, #0066ff); /* Gradient */
+  color: #fff;
+  box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff inset; /* Glow effect */
+  text-decoration: none;
+}
+
+.login-btn:hover {
+  box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff inset; /* Hover glow */
+  transform: scale(1.05); /* Hover zoom */
+  background: linear-gradient(135deg, #00ffff, #0066ff); /* Ensure background doesn't change on hover */
+  color: #fff;
+}
+
+
+/* --- Hamburger Menu --- */
+.menu-toggle {
+  display: none; /* Hidden by default on desktop */
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+/* --- Hero Section --- */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 150px 80px 80px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #161e21, #161e21);
+}
+
+.hero-content {
+  max-width: 50%;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content h1 {
+  font-size: 3em;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  /* MODIFIED: Ensure h1 has space for ONE line */
+  min-height: 70px; 
+}
+
+.hero-content span {
+  color: #00ffd1;
+}
+
+.hero-content p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+  max-width: 500px;
+  color: #ccc;
+}
+
+/* Humne Spline container ko rename kar diya hai */
+.hero-animation-container {
+  width: 50%;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Zaroori hai text ko position karne ke liye */
+  z-index: 2;
+  border-radius: 20px; /* Video ko soft corners dega */
+  overflow: hidden; /* Zaroori hai video ko corners mein cut karne ke liye */
+  background: #111; /* fallback agar video load na ho */
+}
+
+/* Yeh video ko container mein fit karega */
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Video ko poora container fill karne ke liye */
+}
+
+/* Yeh text video ke upar dikhayega */
+.hero-video-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 3.5em;
+  font-weight: 700;
+  text-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+  z-index: 3; /* Video ke upar */
+  text-align: center;
+  opacity: 0.8; /* Thoda transparent */
+}
+
+/* --- Typewriter CSS --- */
+.typewriter-text {
+  /* This span will hold the text */
+  display: inline;
+}
+
+/* We'll apply the cursor only to the *active* typing line */
+.typewriter-text.typing {
+  border-right: 3px solid #00ffd1; /* The cursor */
+  padding-right: 5px;
+  animation: blink-caret 0.75s step-end infinite;
+}
+
+/* Blinking cursor animation */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #00ffd1; }
+}
+
+.hero-cta {
+  padding: 15px 30px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #00ffff, #0066ff);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff inset;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.hero-cta:hover {
+  box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff inset;
+  transform: scale(1.05);
+}
+
+/* --- Tech Background Animation --- */
+.floating-shapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  /* Glowing dot effect */
+  background: radial-gradient(circle, rgba(0,255,209,0.5) 0%, rgba(0,255,209,0) 60%);
+  animation: float 20s linear infinite;
+}
+
+/* Create more shapes for a "data network" feel */
+.shape1 {
+  width: 20px;
+  height: 20px;
+  top: 15%;
+  left: 10%;
+  animation-duration: 15s;
+  animation-delay: 0s;
+}
+.shape2 {
+  width: 30px;
+  height: 30px;
+  top: 70%;
+  left: 80%;
+  animation-duration: 20s;
+  animation-delay: 5s;
+}
+.shape3 {
+  width: 15px;
+  height: 15px;
+  top: 40%;
+  left: 50%;
+  animation-duration: 18s;
+  animation-delay: 10s;
+}
+.shape4 {
+  width: 25px;
+  height: 25px;
+  top: 80%;
+  left: 20%;
+  animation-duration: 16s;
+  animation-delay: 3s;
+}
+.shape5 {
+  width: 20px;
+  height: 20px;
+  top: 10%;
+  left: 75%;
+  animation-duration: 22s;
+  animation-delay: 8s;
+}
+
+/* More dynamic floating animation */
+@keyframes float {
+  0% { 
+    transform: translateY(0) translateX(0);
+    opacity: 0.1;
+  }
+  25% {
+    opacity: 0.7;
+  }
+  50% { 
+    transform: translateY(-20px) translateX(30px);
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.7;
+  }
+  100% { 
+    transform: translateY(0) translateX(0);
+    opacity: 0.1;
+  }
+}
+
+/* --- Features Section --- */
+.features-section {
+  background-color: #121212;
+  padding: 80px 20px;
+}
+
+.features-header {
+  max-width: 1200px;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+
+.features-header h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #00ffd1; /* Using theme color */
+}
+
+.features-header p {
+  font-size: 1.2em;
+  color: #ccc;
+}
+
+.features-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.feature-card {
+  background-color: #1e1e1e;
+  border-radius: 15px;
+  width: 350px;
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
+  position: relative;
+}
+
+.feature-icon {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.feature-icon img {
+  width: 80px;
+  height: 80px;
+}
+
+.feature-card h3 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  color: #00ffff;
+  text-align: center;
+}
+
+.feature-card p {
+  font-size: 1em;
+  line-height: 1.5;
+  color: #ccc;
+}
+
+.feature-card ul {
+  margin-top: 15px;
+  list-style: none;
+  padding: 0;
+  color: #ccc;
+}
+
+.feature-card li {
+  margin-bottom: 10px;
+}
+
+.hover-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  box-shadow: 0 0 10px #00ffff inset, 0 0 20px #00ffff;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.feature-card:hover .hover-border {
+  opacity: 1;
+}
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+
+/* --- About Section --- */
+.about-section {
+  background-color: #121212;
+  padding: 60px 20px;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid #222;
+}
+
+.about-section h2 {
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #00ffd1; /* Using theme color */
+}
+
+.about-description {
+  max-width: 900px;
+  margin: 0 auto 50px;
+  text-align: center;
+  font-size: 1.2em;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+.about-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.about-card {
+  width: 250px;
+  text-align: center;
+  transition: transform 0.3s, scale 0.3s;
+}
+
+.about-card-content {
+  background: linear-gradient(135deg, #1e1e1e, #2a2a2a);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  transition: 0.3s;
+  height: 100%;
+}
+
+.about-card:hover .about-card-content {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+}
+
+.about-icon {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.about-icon img {
+  width: 80px;
+  height: 80px;
+  transition: 0.3s;
+}
+
+.about-card h3 {
+  margin-bottom: 10px;
+  font-size: 1.3em;
+  color: #fff;
+}
+
+.about-card p {
+  font-size: 1em;
+  color: #aaa;
+}
+
+/* --- Footer --- */
+footer {
+  background-color: #111; /* Changed from #222 to match navbar */
+  padding: 40px 20px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Arial', sans-serif;
+  border-top: 1px solid #222;
+}
+
+.footer-logo {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.footer-logo span {
+  font-size: 1.8em;
+  color: #00f7ff;
+  font-weight: bold;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 900px;
+  width: 100%;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 200px;
+  text-align: center;
+}
+
+.footer-column h4 {
+  margin-bottom: 10px;
+  color: #00ff08;
+}
+
+.footer-column p {
+  margin: 0;
+  font-size: 0.95em;
+  color: #ccc;
+}
+
+.footer-legal {
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #aaa;
+}
+
+.footer-legal p {
+  margin: 0;
+  font-size: 0.9em;
+}
+
+
+/* --- ################## --- */
+/* --- Responsive Styles --- */
+/* --- ################## --- */
+
+@media (max-width: 768px) {
+  /* --- Navbar --- */
+  .navbar {
+    padding: 15px 20px;
+  }
+  
+  .nav-links {
+    display: none; /* Hide links by default */
+    flex-direction: column;
+    position: absolute;
+    top: 65px; /* Height of navbar */
+    left: 0;
+    width: 100%;
+    background: #111;
+    padding: 20px 0;
+    gap: 25px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  }
+  
+  .nav-links.active {
+    display: flex; /* Show when active */
+  }
+
+  .menu-toggle {
+    display: flex; /* Show hamburger */
+  }
+
+  /* Hamburger 'X' animation */
+  .menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+  }
+  
+  /* Adjust login button padding for mobile */
+  .login-btn {
+      padding: 8px 20px;
+      font-size: 0.9em;
+  }
+
+  /* --- Hero --- */
+  .hero {
+    flex-direction: column;
+    padding: 120px 20px 40px;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.2em; /* Adjusted font size for mobile */
+    min-height: 60px; /* Adjust height for mobile */
+  }
+  
+  .hero-content p {
+    font-size: 1em;
+    max-width: 100%;
+  }
+  
+  .spline-container {
+    width: 100%;
+    height: 300px;
+    margin-top: 30px;
+  }
+
+  /* --- Features --- */
+  .features-section {
+    padding: 60px 20px;
+  }
+  
+  .features-header h2 {
+    font-size: 2em;
+  }
+
+  .feature-card {
+    width: 100%;
+    max-width: 350px;
+  }
+  
+  /* --- About --- */
+  .about-section {
+    padding: 60px 20px;
+  }
+  
+  .about-description {
+    font-size: 1em;
+  }
+  
+  .about-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .about-card {
+    width: 100%;
+    max-width: 350px;
+  }
+  
+  /* --- Footer --- */
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 25px;
+  }
+}

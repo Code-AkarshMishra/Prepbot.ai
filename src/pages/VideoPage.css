@@ -1,0 +1,85 @@
+/* src/pages/VideoPage.css */
+
+.video-page-container {
+  display: flex;
+  min-height: calc(100vh - 65px);
+  color: #fff;
+}
+
+/* --- Main Player (Left) --- */
+.video-player-area {
+  flex: 1; /* Zyada jagah lega */
+  padding: 30px 40px;
+  background-color: #0b0c10;
+}
+
+.video-page-title {
+  font-size: 2.2em;
+  font-weight: 700;
+  color: #00ffd1;
+  margin-bottom: 20px;
+}
+
+.player-wrapper {
+  position: relative;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  border-radius: 15px;
+  overflow: hidden;
+  background: #000;
+}
+
+.react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* --- Video List (Right) --- */
+.video-list-sidebar {
+  width: 350px;
+  background: #111;
+  padding: 20px;
+  border-left: 1px solid #333;
+}
+
+.video-list-sidebar h3 {
+  color: #00ffd1;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #444;
+  padding-bottom: 15px;
+}
+
+.video-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.video-item {
+  background: #1e1e1e;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #444;
+  font-size: 0.9em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.video-item:hover {
+  background: #2a2a2a;
+}
+
+.video-item.active {
+  border-left-color: #00ffd1;
+  background: #2a2a2a;
+  font-weight: 600;
+}
+
+.video-item-index {
+  color: #888;
+  font-weight: 600;
+}

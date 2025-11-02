@@ -1,0 +1,105 @@
+/* src/components/Chatbot.css */
+
+.chatbot-container {
+  width: 320px;
+  height: 420px;
+  /* Dark theme background */
+  background: #1e1e1e;
+  border: 1px solid #00ffd1; /* Theme border */
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif; /* Matching site font */
+  box-shadow: 0 5px 20px rgba(0, 255, 209, 0.1); /* Theme glow */
+}
+
+.chatbot-header {
+  /* Dark header matching navbar */
+  background: #111;
+  color: #00ffd1; /* Theme color */
+  font-weight: bold;
+  padding: 12px;
+  text-align: center;
+  border-radius: 10px 10px 0 0;
+  font-size: 1.1em;
+}
+
+.chatbot-messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  /* Darker chat area */
+  background: #161616;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.message {
+  padding: 10px 14px;
+  border-radius: 15px;
+  max-width: 80%;
+  line-height: 1.4;
+  font-size: 0.95em;
+}
+
+.message.bot {
+  background: #2b2b2b; /* Dark grey bubble */
+  color: #e0e0e0;
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+
+.message.user {
+  /* Theme gradient for user */
+  background: linear-gradient(135deg, #00ffff, #0066ff);
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+
+.chatbot-input-area {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #333; /* Dark border */
+  background: #111; /* Dark input area */
+  border-radius: 0 0 10px 10px;
+}
+
+.chatbot-input-area input {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 20px;
+  border: 1px solid #444;
+  background: #2b2b2b;
+  color: #fff;
+  font-size: 14px;
+}
+
+.chatbot-input-area input:focus {
+  border-color: #00ffd1;
+  box-shadow: 0 0 5px rgba(0,255,209,0.5);
+  outline: none;
+}
+
+.chatbot-input-area button {
+  margin-left: 8px;
+  padding: 10px 16px;
+  border-radius: 20px;
+  border: none;
+  /* Theme gradient button */
+  background: linear-gradient(135deg, #00ffff, #0066ff);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.chatbot-input-area button:hover {
+  opacity: 0.9;
+}
+
+.chatbot-input-area button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
