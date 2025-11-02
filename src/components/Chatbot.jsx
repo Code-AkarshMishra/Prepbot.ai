@@ -1,7 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Chatbot.css';
-import { useUser } from '@clerk/clerk-react'; 
+import { useUser } from '@clerk/clerk-react'; // Example in src/components/Chatbot.jsx
 
+// Render ka live URL yahaan daalein
+const backendUrl = 'https://prepbot-ai-backend-xyz.onrender.com'; 
+
+const handleSend = async () => {
+    // ...
+    const response = await fetch(`${backendUrl}/chat`, { ... ''});
+    // ...
+}
+// handleGenerateQuiz mein bhi same change karein
 const Chatbot = () => {
   const { isSignedIn, user, isLoaded } = useUser();
   const [messages, setMessages] = useState([]);
