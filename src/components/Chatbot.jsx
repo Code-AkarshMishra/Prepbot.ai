@@ -6,7 +6,7 @@ const Chatbot = () => {
   const { isSignedIn, user, isLoaded } = useUser();
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false); // Loading state
   const messagesEndRef = useRef(null);
 
   // Pehla message user ke login status ke hisaab se set karein
@@ -97,9 +97,7 @@ const Chatbot = () => {
 
   return (
     <div className="chatbot-container">
-      {/* --- YEH LINE BADAL GAYI HAI --- */}
-      <div className="chatbot-header">Prepbot</div>
-      
+      <div className="chatbot-header">PrepBot.AI Chatbot</div>
       <div className="chatbot-messages">
         {messages.map((msg, index) => (
           <div key={index} className={`message ${msg.from}`}>
@@ -113,7 +111,7 @@ const Chatbot = () => {
           type="text"
           placeholder={isLoading ? "Thinking..." : "Type your message..."}
           value={input}
-          onChange={(e) => setInput(e.target.value)}
+          onChange={(e) => setInput(e.target.value)} // <-- YEH TYPO FIX HO GAYA HAI
           onKeyPress={handleKeyPress}
           disabled={isLoading}
         />
@@ -126,3 +124,4 @@ const Chatbot = () => {
 };
 
 export default Chatbot;
+
