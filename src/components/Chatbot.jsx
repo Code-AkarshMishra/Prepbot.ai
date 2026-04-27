@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
-import './Chatbot.css';
+import '.src/components/Chatbot.css';
 import { useUser } from '@clerk/clerk-react'; // Example in src/components/Chatbot.jsx
 
 // Render ka live URL yahaan daalein
-const backendUrl = 'https://prepbot-ai-backend-xyz.onrender.com'; 
+const backendUrl = 'https://prepbot-ai-backend-xyz.onrender.com';
 
 const handleSend = async () => {
-    // ...
-    const response = await fetch(`${backendUrl}/chat`, { ... ''});
-    // ...
+  // ...
+  const response = await fetch(`${backendUrl}/chat`, { ... '' });
+  // ...
 }
 // handleGenerateQuiz mein bhi same change karein
 const Chatbot = () => {
@@ -21,7 +21,7 @@ const Chatbot = () => {
   // Pehla message user ke login status ke hisaab se set karein
   useEffect(() => {
     if (isLoaded) {
-      const welcomeText = isSignedIn 
+      const welcomeText = isSignedIn
         ? `Hi ${user.firstName}! I am your AI mentor. Ask me any study-related doubt.`
         : 'Hello! I am PrepBot, your site guide. Ask me how to use this site.';
       setMessages([{ from: 'bot', text: welcomeText }]);
@@ -71,11 +71,11 @@ const Chatbot = () => {
       setMessages((prev) => {
         const newMessages = [...prev];
         const typingMessageIndex = newMessages.findLastIndex(msg => msg.from === 'bot' && msg.text === '...');
-        
+
         if (typingMessageIndex !== -1) {
-            newMessages[typingMessageIndex] = { from: 'bot', text: botReply };
+          newMessages[typingMessageIndex] = { from: 'bot', text: botReply };
         } else {
-            newMessages.push({ from: 'bot', text: botReply });
+          newMessages.push({ from: 'bot', text: botReply });
         }
         return newMessages;
       });
@@ -84,13 +84,13 @@ const Chatbot = () => {
       console.error('Error fetching from backend:', error);
       // "..." ko error message se replace karein
       setMessages((prev) => {
-         const newMessages = [...prev];
-         const typingMessageIndex = newMessages.findLastIndex(msg => msg.from === 'bot' && msg.text === '...');
-         if (typingMessageIndex !== -1) {
-            newMessages[typingMessageIndex] = { from: 'bot', text: 'Oops! Something went wrong.' };
-         } else {
-            newMessages.push({ from: 'bot', text: 'Oops! Something went wrong.' });
-         }
+        const newMessages = [...prev];
+        const typingMessageIndex = newMessages.findLastIndex(msg => msg.from === 'bot' && msg.text === '...');
+        if (typingMessageIndex !== -1) {
+          newMessages[typingMessageIndex] = { from: 'bot', text: 'Oops! Something went wrong.' };
+        } else {
+          newMessages.push({ from: 'bot', text: 'Oops! Something went wrong.' });
+        }
         return newMessages;
       });
     } finally {
