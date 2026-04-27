@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import '.src/components/Chatbot.css';
+import '.src/components/chatbot.css';
 import { useUser } from '@clerk/clerk-react'; // Example in src/components/Chatbot.jsx
 
 // Render ka live URL yahaan daalein
